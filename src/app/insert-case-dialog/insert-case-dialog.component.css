@@ -1,0 +1,27 @@
+.insert-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Add styles to make form fields display vertically */
+  .insert-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap between form fields */
+  }
+  
+  .insert-dialog label {
+    font-weight: bold;
+  }
+  
+  .insert-dialog input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }

@@ -1,0 +1,15 @@
+<div *ngIf="isVisible" class="insert-dialog">
+  <form [formGroup]="insertForm">
+    <label for="case_id">Case ID:</label>
+    <input type="text" id="case_id" formControlName="case_id" />
+    <label for="location">Location:</label>
+    <input type="text" id="location" formControlName="location" />
+    <label for="time">Time:</label>
+    <input type="text" id="time" formControlName="time" />
+    <label for="description">Description:</label>
+    <input type="text" id="description" formControlName="description" />
+    <label for="is_active">Status:</label>
+    <input type="text" id="is_active" formControlName="is_active" />
+    <button type="button" (click)="onSave()">Save</button>
+  </form>
+</div>

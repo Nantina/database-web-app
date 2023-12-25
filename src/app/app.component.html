@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div *ngIf="!isSubPage">
+  <button #startingElement class="button-case" (click)="navigateToCases()">Case</button>
+  <button #endingVictim class="button-victim" (click)="navigateToVictims()">Victim</button>
+  <button #endingPoliceman class="button-policeman" (click)="navigateToComponent2()">Policeman</button>
+  <button #endingClue class="button-clue" (click)="navigateToComponent3()">Clue</button>
+  <button #endingSuspect class="button-suspect" (click)="navigateToComponent1()">Suspect</button>
+  <button #endingWitness class="button-witness" (click)="navigateToComponent2()">Witness</button>
+</div>
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
