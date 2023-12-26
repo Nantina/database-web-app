@@ -21,16 +21,36 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let case of filteredCases" (click)="onRowClick(case)">
+                <tr *ngFor="let case of filteredCases; let i = index">
                   <td>{{ case[0] }}</td>
                   <td>{{ case[1] }}</td>
                   <td>{{ case[2] }}</td>
                   <td>{{ case[3] }}</td>
                   <td>{{ case[4] ? 'Active' : 'Inactive' }}</td>
+                  <td>
+                    <button (click)="moreDetails(i)" class="details-button">More Details</button>
+                  </td>
+                  <div *ngIf="selectedRow === i && isPopupVisible">
+                    <app-case-details [selectedCase] = case (closePopupEvent)="closePopup()"></app-case-details>
+                  </div>
+                  <td>
+                    <button (click)="deleteCase(case[0])" class="delete-button"><mat-icon>delete</mat-icon></button>
+                  </td>
+                  <!-- <td>
+                    <mat-icon>delete</mat-icon>
+                  </td> -->
                 </tr>
               </tbody>
         </table>
     </div>
+
+    
+
+
+
+    <!-- <div *ngIf="selectedRow"  >
+      <app-case-details [selected]="i" *ngIf="isPopupVisible" (closePopupEvent)="closePopup()"></app-case-details>
+    </div> -->
 
     <div class="search-container">      
         <button class="insert-button" (click)="openInsertDialog()">Insert Case</button>
@@ -38,3 +58,5 @@
 
       <app-insert-case-dialog [isVisible]="isInsertDialogVisible" (saveCase)="onCaseSaved($event)"></app-insert-case-dialog>
 </body>
+
+<router-outlet></router-outlet>

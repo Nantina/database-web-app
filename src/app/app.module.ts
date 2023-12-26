@@ -21,6 +21,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { InsertCaseDialogComponent } from './insert-case-dialog/insert-case-dialog.component';
+import { LoginComponent } from './login/login.component';
+import { CaseDetailsComponent } from './case-details/case-details.component';
 
 const routes: Routes = [
   // { path: '/', component: HeaderComponent },
@@ -42,7 +44,9 @@ const routes: Routes = [
     VictimComponent,
     HomeComponent,
     FooterComponent,
-    InsertCaseDialogComponent
+    InsertCaseDialogComponent,
+    LoginComponent,
+    CaseDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -54,3 +54,19 @@ th {
     margin-top: 10px; 
 
   }
+
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .details-button{
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 20px; /* Make it more circular */
+    background-color: #000000; /* Set a background color */
+    color: white; /* Set text color */
+    cursor: pointer;
+  }

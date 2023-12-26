@@ -1,0 +1,11 @@
+<div class="popup-overlay" *ngIf="isPopupVisible">
+  <div class="popup-container">
+    <div class="popup-header">
+      <h2>{{ title }}</h2>
+      <button (click)="closeDetails()">X</button>
+    </div>
+    <div class="popup-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

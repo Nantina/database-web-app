@@ -3,6 +3,9 @@ import { DataService } from '../data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertCaseDialogComponent } from '../insert-case-dialog/insert-case-dialog.component';
 import { Case } from '../interfaces/Case';
+import { Router } from '@angular/router';
+import { PopupService } from 'src/services/popup.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-cases',
@@ -10,9 +13,12 @@ import { Case } from '../interfaces/Case';
   styleUrls: ['./cases.component.css']
 })
 export class CasesComponent {
+
   cases: any[] = [];
 
   selectedRow: any;
+
+  moreDetailsCase: any;
 
   // Variable to hold the search text
   searchText: string = '';
@@ -20,11 +26,12 @@ export class CasesComponent {
   // Filtered cases based on the search text
   filteredCases: any[] = [];
 
-  constructor(private dataService: DataService, public dialog: MatDialog) {}
+  constructor(private dataService: DataService, public dialog: MatDialog, private router: Router, private popupService: PopupService) {}
 
   ngOnInit(): void {
     this.getCases();
   }
+
 
   getCases(): void {
     this.dataService.getCases().subscribe((data) => {
@@ -37,16 +44,16 @@ export class CasesComponent {
     
   }
 
-  onRowClick(row: any): void {
-    // Handle row click event
-    this.selectedRow = row;
+  // onRowClick(row: any): void {
+  //   // Handle row click event
+  //   this.selectedRow = row;
 
-    // You can fetch additional information from another API based on row data
-    // Example:
-    // this.casesService.getAdditionalInfo(row.id).subscribe((additionalInfo) => {
-    //   this.selectedRow.additionalInfo = additionalInfo;
-    // });
-  }
+  //   // You can fetch additional information from another API based on row data
+  //   // Example:
+  //   // this.casesService.getAdditionalInfo(row.id).subscribe((additionalInfo) => {
+  //   //   this.selectedRow.additionalInfo = additionalInfo;
+  //   // });
+  // }
 
   search() {
     this.filteredCases = this.cases.filter(currentCase => {
@@ -66,9 +73,45 @@ export class CasesComponent {
     this.isInsertDialogVisible = false;
   }
 
+  deleteCase(caseId: string): void {
+    console.log(caseId)
+    this.dataService.deleteCase(caseId).subscribe({
+        next: (response) => {
+            // Handle the response if needed
+            console.log('Case successfully deleted:', response);
+
+            // Fetch the updated cases from the server after deleting a case
+            this.dataService.getCases().subscribe((data) => {
+                this.cases = data;
+                this.filteredCases = this.cases;
+
+                this.closeInsertDialog();
+            });
+
+        },
+        error: (error) => {
+            console.error('Error deleting case:', error);
+        },
+    });
+}
+
+  moreDetails(row: any): void {
+    console.log('Button clicked in row:', row);
+    this.selectedRow = row;
+    this.isPopupVisible = true;
+  }
+
+  isPopupVisible = true;
+
+  closePopup() {
+
+    this.isPopupVisible = false;
+    // this.popupService.closePopup();
+  }
+
+
 
   onCaseSaved(newCase: Case) {
-    // console.log('Attempting to save case:', newCase);
     console.log(newCase);
     // Perform the POST request to your API with the newCase data
     this.dataService.postCase(newCase).subscribe({

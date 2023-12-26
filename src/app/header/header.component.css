@@ -7,4 +7,9 @@ header {
     font-family: slab-serif;
 }
 
+.right-image {
+    width: 250px;
+    float: right;
+  }
+
 
