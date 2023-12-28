@@ -17,18 +17,24 @@ import { ClueComponent } from './clue/clue.component';
 import { PolicemanComponent } from './policeman/policeman.component';
 import { MedicalExaminerComponent } from './medical-examiner/medical-examiner.component';
 import { VictimComponent } from './victim/victim.component';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { InsertCaseDialogComponent } from './insert-case-dialog/insert-case-dialog.component';
-import { LoginComponent } from './login/login.component';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+import { InsertClueComponent } from './insert-clue/insert-clue.component';
+import { InsertPolicemanComponent } from './insert-policeman/insert-policeman.component';
+import { InsertVictimComponent } from './insert-victim/insert-victim.component';
+import { InsertWitnessComponent } from './insert-witness/insert-witness.component';
+import { InsertSuspectComponent } from './insert-suspect/insert-suspect.component';
 
 const routes: Routes = [
   // { path: '/', component: HeaderComponent },
   { path: 'cases', component: CasesComponent },
-  { path: 'victim', component: VictimComponent}, 
-  { path: 'clue', component: ClueComponent}
+  { path: 'victims', component: VictimComponent}, 
+  { path: 'clues', component: ClueComponent},
+  { path: 'suspects', component: SuspectComponent},
+  { path: 'witnesses', component: WitnessComponent},
+  { path: 'policemen', component: PolicemanComponent}
 ];
 
 @NgModule({
@@ -42,11 +48,14 @@ const routes: Routes = [
     PolicemanComponent,
     MedicalExaminerComponent,
     VictimComponent,
-    HomeComponent,
     FooterComponent,
     InsertCaseDialogComponent,
-    LoginComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    InsertClueComponent,
+    InsertPolicemanComponent,
+    InsertVictimComponent,
+    InsertWitnessComponent,
+    InsertSuspectComponent
   ],
   imports: [
     BrowserModule,

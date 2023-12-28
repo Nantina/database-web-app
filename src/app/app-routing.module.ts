@@ -1,22 +1,24 @@
-// app-routing.module.ts
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component'; 
 import { CasesComponent } from './cases/cases.component';
 import { VictimComponent } from './victim/victim.component';
 import { ClueComponent } from './clue/clue.component';
 import { CaseDetailsComponent } from './case-details/case-details.component';
+import { SuspectComponent } from './suspect/suspect.component';
+import { WitnessComponent } from './witness/witness.component';
+import { PolicemanComponent } from './policeman/policeman.component';
 
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
   { path: 'cases', component: CasesComponent },
   { path: 'victim', component: VictimComponent}, 
-  { path: 'clue', component: ClueComponent},
-  { path: 'cases/case-details', component: CaseDetailsComponent}
+  { path: 'clues', component: ClueComponent},
+  { path: 'cases/case-details', component: CaseDetailsComponent},
+  { path: 'suspects', component: SuspectComponent},
+  { path: 'witnesses', component: WitnessComponent},
+  { path: 'policemen', component: PolicemanComponent}
 ];
 
 @NgModule({

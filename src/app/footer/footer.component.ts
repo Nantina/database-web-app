@@ -1,6 +1,6 @@
-// footer.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LineService } from 'src/services/line.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private lineService: LineService) {}
 
   navigateToHome(): void {
     this.router.navigate(['/']);
+    this.lineService.createLines();
   }
 }
+
+

@@ -1,1 +1,46 @@
-<p>policeman works!</p>
+
+<body>
+
+    <div class="search-container">
+        <div class="search-form">
+          <input class="search-input" type="text" placeholder="Search cases..." [(ngModel)]="searchText" />
+          <button class="search-button" (click)="search()">Search</button>
+        </div>
+      </div>
+
+    <div class="notebook-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Policeman ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Police Station ID</th>
+                    <th>Specialty</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let policeman of filteredPolicemen; let i = index">
+                    <td>{{ policeman[0] }}</td>
+                    <td>{{ policeman[1] }}</td>
+                    <td>{{ policeman[2] ? 'Male' : 'Female' }}</td>
+                    <td>{{ policeman[3] }}</td>
+                    <td>{{ policeman[4] }}</td>
+                    <td>{{ policeman[5] }}</td>           
+                  <td>
+                    <button (click)="deletePoliceman(policeman.policeman_id)" class="delete-button"><mat-icon>delete</mat-icon></button>
+                  </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <div class="search-container">      
+        <button class="insert-button" (click)="openInsertDialog()">Insert Policeman</button>
+      </div>
+
+      <app-insert-policeman [isVisible]="isInsertDialogVisible" (savePoliceman)="onPolicemanSaved($event)"></app-insert-policeman>
+</body>
+
+<router-outlet></router-outlet>

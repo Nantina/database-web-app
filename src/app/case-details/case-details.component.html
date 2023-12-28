@@ -5,6 +5,12 @@
       <button (click)="closeDetails()">X</button>
     </div>
     <div class="popup-content">
+        <ul>
+          <li><strong>Case ID:</strong> {{ caseDetails[0] }}</li>
+          <li><strong>Type:</strong> {{ caseDetails[1] }}</li>
+          <li><strong>Date:</strong> {{ caseDetails[2] }}</li>
+          <li><strong>Category:</strong> {{ caseDetails[3] }}</li>
+        </ul>
       <ng-content></ng-content>
     </div>
   </div>

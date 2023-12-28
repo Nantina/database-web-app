@@ -1,0 +1,39 @@
+<div *ngIf="isVisible" class="insert-dialog">
+    <form [formGroup]="insertForm">
+      <label for="victim_id">Victim ID:</label>
+      <input type="text" id="victim_id" formControlName="victim_id" />
+
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" formControlName="first_name" />
+
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" formControlName="last_name" />
+
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" formControlName="gender" />
+
+      <label for="birth_date">Birth Date:</label>
+      <input type="text" id="birth_date" formControlName="birth_date" />
+
+      <label for="death_date">Death Date:</label>
+      <input type="text" id="death_date" formControlName="death_date" />
+
+      <label for="description_of_death">Description of Death:</label>
+      <input type="text" id="description_of_death" formControlName="description_of_death" />
+
+      <label for="nationality">Nationality:</label>
+      <input type="text" id="nationality" formControlName="nationality" />
+
+      <label for="Case_case_id">Case ID:</label>
+      <input type="text" id="Case_case_id" formControlName="Case_case_id" />
+
+      <label for="Medical_Examiner_medical_examiner_id">Medical Examiner ID:</label>
+      <input type="text" id="Medical_Examiner_medical_examiner_id" formControlName="Medical_Examiner_medical_examiner_id" />
+
+      <label for="Lawyer_lawyer_id">Lawyer ID:</label>
+      <input type="text" id="Lawyer_lawyer_id" formControlName="Lawyer_lawyer_id" />
+
+      <button type="button" (click)="onSave()">Save</button>
+    </form>
+  </div>
+  

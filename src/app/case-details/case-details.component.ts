@@ -16,7 +16,7 @@ export class CaseDetailsComponent implements OnInit {
   @Output() closePopupEvent = new EventEmitter<void>();
 
   caseId: string = '';
-  caseDetails: any; // Adjust the type based on your data structure
+  caseDetails: any; 
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
@@ -26,13 +26,11 @@ export class CaseDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.caseId = this.selectedCase[0];
-    console.log(this.selectedCase)
-      this.getCaseDetails();
+    this.getCaseDetails(this.selectedCase[0]); 
   }
 
-  getCaseDetails(): void {
-    this.dataService.getCaseDetails().subscribe((data) => {
+  getCaseDetails(case_id: string): void {
+    this.dataService.getCaseDetails(case_id).subscribe((data) => {
       this.caseDetails = data;
     });
   }
