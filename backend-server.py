@@ -15,6 +15,13 @@ app.config['MYSQL_DB'] = 'project'
 
 mysql = MySQL(app)
 
+def execute_query(query, params=None):
+    cur = mysql.connection.cursor()
+    cur.execute(query, params)
+    result = cur.fetchall()
+    cur.close()
+    return result
+
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', 'http://localhost:4200')
@@ -368,22 +375,55 @@ def handle_data_victim():
 
 
 
-@app.route('/api/data/case-details', methods=['GET', 'OPTIONS'])
+@app.route('/api/data/case-details', methods=['GET'])
 def handle_data_case_details():
-    if request.method == 'GET':
-        data = request.get_json()
-        case_id = data.get('case_id', None)
-        # case_id = 'C-412'
-        cur = mysql.connection.cursor()
+    # data = request.get_json()
+    case_id = request.args.get('case_id')
+    # case_id = data.get('case_id', None)
+    # case_id = "C-491"
 
-        if case_id:
-            cur.execute('SELECT * FROM `case` WHERE case_id = %s', (case_id, None))
-        else:
-            cur.execute('SELECT * FROM `case`')
+    # Query for victims
+    query_victims = 'SELECT victim_id, last_name FROM victim WHERE Case_case_id = %s'
+    victims_data = execute_query(query_victims, (case_id,))
 
-        case_details_data = cur.fetchall()
-        cur.close()
-        return jsonify(case_details_data)
+    # Query for clues
+    query_clues = 'SELECT clue_id, description FROM clue WHERE Case_case_id = %s'
+    clues_data = execute_query(query_clues, (case_id,))
+
+    # Query for suspects
+    query_suspects = '''
+        SELECT suspect_id, name
+        FROM suspect
+        JOIN case_has_suspect ON suspect.suspect_id = case_has_suspect.Suspect_suspect_id
+        WHERE Case_case_id = %s
+    '''
+    suspects_data = execute_query(query_suspects, (case_id,))
+
+    # Query for witnesses
+    query_witnesses = '''
+        SELECT witness_id, name
+        FROM witness
+        JOIN case_has_witness ON witness.witness_id = case_has_witness.Witness_witness_id
+        WHERE Case_case_id = %s
+    '''
+    witnesses_data = execute_query(query_witnesses, (case_id,))
+
+    # Query for policemen
+    query_policemen = '''
+        SELECT policeman_id, name
+        FROM policeman
+        JOIN case_has_policeman ON policeman.policeman_id = case_has_policeman.Policeman_policeman_id
+        WHERE Case_case_id = %s
+    '''
+    policemen_data = execute_query(query_policemen, (case_id,))
+
+    return jsonify({
+        'victims': victims_data,
+        'clues': clues_data,
+        'suspects': suspects_data,
+        'witnesses': witnesses_data,
+        'policemen': policemen_data
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -11,7 +11,7 @@ import { DataService } from '../data.service';
 })
 export class CaseDetailsComponent implements OnInit {
   @Input() selectedCase: any;
-  @Input() title: string = 'Popup Title';
+  @Input() title: string = 'Case Details';
   @Input() isPopupVisible: boolean = true;
   @Output() closePopupEvent = new EventEmitter<void>();
 
@@ -34,4 +34,5 @@ export class CaseDetailsComponent implements OnInit {
       this.caseDetails = data;
     });
   }
+
 }

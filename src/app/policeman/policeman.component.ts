@@ -47,7 +47,6 @@ export class PolicemanComponent {
   }
 
   deletePoliceman(policemanId: string): void {
-    console.log(policemanId)
     this.dataService.deletePoliceman(policemanId).subscribe({
         next: (response) => {
             console.log('Policeman successfully deleted:', response);
@@ -69,11 +68,8 @@ export class PolicemanComponent {
   closePopup() {
     this.isPopupVisible = false;
   }
-
-
-
+  
   onPolicemanSaved(newPoliceman: Policeman) {
-    console.log(newPoliceman);
     this.dataService.postPoliceman(newPoliceman).subscribe({
       next: (response) => {
         console.log('Policeman successfully added:', response);

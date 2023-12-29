@@ -35,7 +35,6 @@ export class AppComponent implements  OnDestroy, AfterViewInit {
   linesCreated: boolean = false;
 
   constructor(private router: Router, private lineService: LineService) {
-    console.log('AppComponent constructor');
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isSubPage = event.url !== '/';
@@ -106,8 +105,6 @@ export class AppComponent implements  OnDestroy, AfterViewInit {
           line.setOptions({ startSocket: 'top', endSocket: 'top' });
 
           this.leaderLines.push(line);
-
-          console.log(`Line ${index + 1} created successfully.`);
         }
       } catch (error) {
         console.error(`Error creating line ${index + 1}:`, error);

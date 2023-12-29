@@ -49,7 +49,6 @@ export class VictimComponent {
   }
 
   deleteVictim(victimId: string): void {
-    console.log(victimId)
     this.dataService.deleteVictim(victimId).subscribe({
         next: (response) => {
             console.log('Victim successfully deleted:', response);
@@ -71,7 +70,6 @@ export class VictimComponent {
   }
 
   onVictimSaved(newVictim: Victim) {
-    console.log(newVictim);
     this.dataService.postVictim(newVictim).subscribe({
       next: (response) => {
         console.log('Victim successfully added:', response);

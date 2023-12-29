@@ -56,7 +56,6 @@ export class CasesComponent {
   }
 
   deleteCase(caseId: string): void {
-    console.log(caseId)
     this.dataService.deleteCase(caseId).subscribe({
         next: (response) => {
             console.log('Case successfully deleted:', response);
@@ -91,7 +90,6 @@ moreDetails(caseId: string): void {
 
 
   onCaseSaved(newCase: Case) {
-    console.log(newCase);
     this.dataService.postCase(newCase).subscribe({
       next: (response) => {
         console.log('Case successfully added:', response);

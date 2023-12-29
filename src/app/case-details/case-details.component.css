@@ -10,9 +10,62 @@
   justify-content: center;
 }
 
+.popup-content {
+  overflow: auto;
+  max-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between items as needed */
+}
+
+.popup-content li {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .popup-content {
+  overflow: auto; 
+  max-height: 400px; 
+} */
+
+/* .popup-content li {
+  font-size: 14px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px; /* Increase the padding to add more space */
+  margin-bottom: 10px;
+}
+
+.popup-header h2 {
+  margin-right: 20px; /* Adjust the right margin for the h2 element */
+}
+
 .popup-container {
   background: #fff;
-  padding: 20px;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* @media (max-width: 768px) {
+  .popup-container {
+    width: 80%; 
+  }
+} */
+
+/* .popup-container {
+  background: #fff;
+  padding: 50px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -24,5 +77,5 @@
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 10px;
-}
+} */
 

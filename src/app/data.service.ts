@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 import { Case, Clue, Policeman, Suspect, Victim, Witness } from './interfaces/Data';
 
@@ -35,17 +36,12 @@ export class DataService {
 
   getCaseDetails(case_id: string): Observable<any> {
     const url = `${this.apiUrl}/case-details`;
+    const params = new HttpParams().set('case_id', case_id);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    
-    // Assuming your server supports including data in the request body for a GET request
-    const options = {
-      headers: headers,
-      body: { case_id: case_id },
-    };
   
-    return this.http.get<any>(url, options);
+    return this.http.get<any>(url, { headers: headers, params: params });
   }
 
   // Clues requests
@@ -69,7 +65,6 @@ export class DataService {
   // Policemen requests
 
   getSuspects(): Observable<Suspect[]> {
-    console.log()
     return this.http.get<Suspect[]>(`${this.apiUrl}/suspects`);
   }
 
@@ -88,7 +83,6 @@ export class DataService {
   // Policeman requests
 
   getPolicemen(): Observable<Policeman[]> {
-    console.log()
     return this.http.get<Policeman[]>(`${this.apiUrl}/policemen`);
   }
 
@@ -107,7 +101,6 @@ export class DataService {
   // Victim requests
 
   getVictims(): Observable<Victim[]> {
-    console.log()
     return this.http.get<Victim[]>(`${this.apiUrl}/victims`);
   }
 
@@ -126,7 +119,6 @@ export class DataService {
     // Witness requests
 
     getWitnesses(): Observable<Witness[]> {
-      console.log()
       return this.http.get<Witness[]>(`${this.apiUrl}/witnesses`);
     }
   

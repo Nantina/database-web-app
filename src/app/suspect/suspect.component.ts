@@ -47,7 +47,6 @@ export class SuspectComponent {
   }
 
   deleteSuspect(suspectId: string): void {
-    console.log(suspectId)
     this.dataService.deleteSuspect(suspectId).subscribe({
         next: (response) => {
             console.log('Suspect successfully deleted:', response);
@@ -70,7 +69,6 @@ export class SuspectComponent {
   }
 
   onSuspectSaved(newSuspect: Suspect) {
-    console.log(newSuspect);
     this.dataService.postSuspect(newSuspect).subscribe({
       next: (response) => {
         console.log('Suspect successfully added:', response);

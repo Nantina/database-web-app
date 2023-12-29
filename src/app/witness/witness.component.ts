@@ -47,7 +47,6 @@ export class WitnessComponent {
   }
 
   deleteWitness(witnessId: string): void {
-    console.log(witnessId)
     this.dataService.deleteWitness(witnessId).subscribe({
         next: (response) => {
             console.log('witness successfully deleted:', response);
@@ -70,7 +69,6 @@ export class WitnessComponent {
   }
 
   onWitnessSaved(newWitness: Witness) {
-    console.log(newWitness);
     this.dataService.postWitness(newWitness).subscribe({
       next: (response) => {
         console.log('Witness successfully added:', response);

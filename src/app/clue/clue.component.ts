@@ -50,7 +50,6 @@ export class ClueComponent {
   }
 
   deleteClue(clueId: string): void {
-    console.log(clueId)
     this.dataService.deleteClue(clueId).subscribe({
         next: (response) => {
             console.log('Clue successfully deleted:', response);
@@ -70,7 +69,6 @@ export class ClueComponent {
 }
 
   moreDetails(row: any): void {
-    console.log('Button clicked in row:', row);
     this.selectedRow = row;
     this.isPopupVisible = true;
   }
@@ -82,7 +80,6 @@ export class ClueComponent {
   }
 
   onClueSaved(newClue: Clue) {
-    console.log(newClue);
     // Perform the POST request to the API with the newClue data
     this.dataService.postClue(newClue).subscribe({
       next: (response) => {
