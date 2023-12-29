@@ -5,6 +5,52 @@
       <button (click)="closeDetails()">X</button>
     </div>
     <div class="popup-content">
+      <ul *ngIf="caseDetails">
+        <li *ngIf="caseDetails.clues && caseDetails.clues.length > 0">
+          <strong>Clues:</strong>
+          <ul>
+            <li *ngFor="let clue of caseDetails.clues">
+              {{ clue[0] }} - {{ clue[1] }}
+            </li>
+          </ul>
+        </li>
+
+        <li *ngIf="caseDetails.policemen && caseDetails.policemen.length > 0">
+          <strong>Policemen:</strong>
+          <ul>
+            <li *ngFor="let policeman of caseDetails.policemen">
+              {{ policeman[0] }} - {{ policeman[1] }}
+            </li>
+          </ul>
+        </li>
+
+        <li *ngIf="caseDetails.suspects && caseDetails.suspects.length > 0">
+          <strong>Suspects:</strong>
+          <ul>
+            <li *ngFor="let suspect of caseDetails.suspects">
+              {{ suspect[0] }} - {{ suspect[1] }}
+            </li>
+          </ul>
+        </li>
+
+        <li *ngIf="caseDetails.victims && caseDetails.victims.length > 0">
+          <strong>Victims:</strong>
+          <ul>
+            <li *ngFor="let victim of caseDetails.victims">
+              {{ victim[0] }} - {{ victim[1] }}
+            </li>
+          </ul>
+        </li>
+
+        <li *ngIf="caseDetails.witnesses && caseDetails.witnesses.length > 0">
+          <strong>Witnesses:</strong>
+          <ul>
+            <li *ngFor="let witness of caseDetails.witnesses">
+              {{ witness[0] }} - {{ witness[1] }}
+            </li>
+          </ul>
+        </li>
+      </ul>
       <ng-content></ng-content>
     </div>
   </div>

@@ -1,5 +1,3 @@
-// case-details.component.ts
-
 import { Component, Input, OnInit, EventEmitter, Output  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
@@ -11,12 +9,12 @@ import { DataService } from '../data.service';
 })
 export class CaseDetailsComponent implements OnInit {
   @Input() selectedCase: any;
-  @Input() title: string = 'Popup Title';
+  @Input() title: string = 'Case Details';
   @Input() isPopupVisible: boolean = true;
   @Output() closePopupEvent = new EventEmitter<void>();
 
   caseId: string = '';
-  caseDetails: any; // Adjust the type based on your data structure
+  caseDetails: any; 
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
@@ -26,14 +24,13 @@ export class CaseDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.caseId = this.selectedCase[0];
-    console.log(this.selectedCase)
-      this.getCaseDetails();
+    this.getCaseDetails(this.selectedCase[0]); 
   }
 
-  getCaseDetails(): void {
-    this.dataService.getCaseDetails().subscribe((data) => {
+  getCaseDetails(case_id: string): void {
+    this.dataService.getCaseDetails(case_id).subscribe((data) => {
       this.caseDetails = data;
     });
   }
+
 }

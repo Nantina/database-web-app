@@ -1,13 +1,21 @@
-/* footer.component.css */
-.app-footer {
-    background-color: #443402;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+.container {
+  position: relative;
+}
 
+.back-to-home {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-to-home i {
+  margin-right: 5px;
+}
 
 

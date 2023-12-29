@@ -30,25 +30,25 @@ th {
   
   .search-input {
     border: none;
-    padding: 10px; /* Adjust the padding as needed */
-    border-radius: 20px; /* Make it more circular */
-    margin-bottom: 10px; /* Add some margin between input and button */
+    padding: 10px; 
+    border-radius: 20px; 
+    margin-bottom: 10px; 
   }
   
   .search-button {
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
     border: none;
-    border-radius: 20px; /* Make it more circular */
-    background-color: #e2c017; /* Set a background color */
-    color: white; /* Set text color */
+    border-radius: 20px; 
+    background-color: #e2c017; 
+    color: white; 
     cursor: pointer;
   }
 
   .insert-button {
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
     border: none;
-    border-radius: 20px; /* Make it more circular */
-    background-color: #e2c017; /* Set a background color */
+    border-radius: 20px;
+    background-color: #e2c017; 
     color: white; 
     cursor: pointer;
     margin-top: 10px; 
@@ -63,10 +63,10 @@ th {
   }
 
   .details-button{
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px; 
     border: none;
-    border-radius: 20px; /* Make it more circular */
-    background-color: #000000; /* Set a background color */
-    color: white; /* Set text color */
+    border-radius: 20px; 
+    background-color: #000000; 
+    color: white; 
     cursor: pointer;
   }

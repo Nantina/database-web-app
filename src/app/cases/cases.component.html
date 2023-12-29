@@ -6,7 +6,6 @@
           <input class="search-input" type="text" placeholder="Search cases..." [(ngModel)]="searchText" />
           <button class="search-button" (click)="search()">Search</button>
         </div>
-        <!-- Other content goes here -->
       </div>
 
     <div class="notebook-table">
@@ -28,29 +27,21 @@
                   <td>{{ case[3] }}</td>
                   <td>{{ case[4] ? 'Active' : 'Inactive' }}</td>
                   <td>
-                    <button (click)="moreDetails(i)" class="details-button">More Details</button>
+                    <button (click)="moreDetails(case[0])" class="details-button">More Details</button>
                   </td>
+                  <!-- <div *ngIf="selectedRow !== null && isPopupVisible">
+                    <app-case-details [selectedCase]="filteredCases[selectedRow]" (closePopupEvent)="closePopup()"></app-case-details>
+                  </div> -->
                   <div *ngIf="selectedRow === i && isPopupVisible">
                     <app-case-details [selectedCase] = case (closePopupEvent)="closePopup()"></app-case-details>
                   </div>
                   <td>
                     <button (click)="deleteCase(case[0])" class="delete-button"><mat-icon>delete</mat-icon></button>
                   </td>
-                  <!-- <td>
-                    <mat-icon>delete</mat-icon>
-                  </td> -->
                 </tr>
               </tbody>
         </table>
     </div>
-
-    
-
-
-
-    <!-- <div *ngIf="selectedRow"  >
-      <app-case-details [selected]="i" *ngIf="isPopupVisible" (closePopupEvent)="closePopup()"></app-case-details>
-    </div> -->
 
     <div class="search-container">      
         <button class="insert-button" (click)="openInsertDialog()">Insert Case</button>

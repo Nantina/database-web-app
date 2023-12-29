@@ -1,1 +1,52 @@
-<p>suspect works!</p>
+
+<body>
+
+    <div class="search-container">
+        <div class="search-form">
+          <input class="search-input" type="text" placeholder="Search cases..." [(ngModel)]="searchText" />
+          <button class="search-button" (click)="search()">Search</button>
+        </div>
+      </div>
+
+    <div class="notebook-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Suspect ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Street Address</th>
+                    <th>Address Number</th>
+                    <th>Birth Date</th>
+                    <th>Lawyer ID</th>
+                    <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let suspect of filteredSuspects; let i = index">
+                    <td>{{ suspect[0] }}</td>
+                    <td>{{ suspect[1] }}</td>
+                    <td>{{ suspect[2] }}</td>
+                    <td>{{ suspect[3] ? 'Male' : 'Female'}}</td>
+                    <td>{{ suspect[4] }}</td>
+                    <td>{{ suspect[5] }}</td>
+                    <td>{{ suspect[6] }}</td>
+                    <td>{{ suspect[7] }}</td>
+                    <td>{{ suspect[8] }}</td>            
+                  <td>
+                    <button (click)="deleteSuspect(suspect[0])" class="delete-button"><mat-icon>delete</mat-icon></button>
+                  </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <div class="search-container">      
+        <button class="insert-button" (click)="openInsertDialog()">Insert Policeman</button>
+      </div>
+
+      <app-insert-suspect [isVisible]="isInsertDialogVisible" (saveSuspect)="onSuspectSaved($event)"></app-insert-suspect>
+</body>
+
+<router-outlet></router-outlet>

@@ -1,11 +1,11 @@
 <app-header></app-header>
-<div *ngIf="!isSubPage">
+<div *ngIf="!isSubPage" >
   <button #startingElement class="button-case" (click)="navigateToCases()">Case</button>
   <button #endingVictim class="button-victim" (click)="navigateToVictims()">Victim</button>
-  <button #endingPoliceman class="button-policeman" (click)="navigateToComponent2()">Policeman</button>
-  <button #endingClue class="button-clue" (click)="navigateToComponent3()">Clue</button>
-  <button #endingSuspect class="button-suspect" (click)="navigateToComponent1()">Suspect</button>
-  <button #endingWitness class="button-witness" (click)="navigateToComponent2()">Witness</button>
+  <button #endingPoliceman class="button-policeman" (click)="navigateToPolicemen()">Policeman</button>
+  <button #endingClue class="button-clue" (click)="navigateToClues()">Clue</button>
+  <button #endingSuspect class="button-suspect" (click)="navigateToSuspects()">Suspect</button>
+  <button #endingWitness class="button-witness" (click)="navigateToWitnesses()">Witness</button>
   <img src="assets\clue.png" alt="Image" style="width:328px; height:253px;" class="clue-image">
   <img src="assets\hourglass.png" alt="Image" style="width:90px; height:93px;" class="hourglass-image">
   <img src="assets\investigator.png" alt="Image" style="width:228px; height:153px;" class="investigator-image">
@@ -19,4 +19,4 @@
 </div>
 <router-outlet></router-outlet>
 
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

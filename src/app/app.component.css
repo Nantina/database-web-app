@@ -18,7 +18,8 @@
     border: none;
     position: absolute;
     top: 300px;
-    right:300px;
+    right:200px;
+    z-index: -1;
 }
 .hourglass-image{
     margin: 10px;
@@ -34,7 +35,7 @@
     border: none;
     position: absolute;
     top: 760px;
-    left:300px;
+    left:200px;
 }
 .map_paper-image{
     margin: 10px;
@@ -84,6 +85,7 @@
     position: absolute;
     top:600px;
     right:800px;
+    z-index: -1;
 }
 .victim-image{
     margin: 10px;
@@ -100,7 +102,8 @@
     border: none;
     position: absolute;
     top:670px;
-    right:80px;
+    right:50px;
+    z-index: -1;
 }
 
 .button-clue {

@@ -10,11 +10,19 @@
   justify-content: center;
 }
 
-.popup-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.popup-content {
+  overflow: auto;
+  max-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+}
+
+.popup-content li {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .popup-header {
@@ -22,10 +30,18 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  padding-bottom: 20px; 
   margin-bottom: 10px;
 }
 
-.popup-content {
-  /* Add your content styles here */
+.popup-header h2 {
+  margin-right: 20px; 
 }
+
+.popup-container {
+  background: #fff;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+

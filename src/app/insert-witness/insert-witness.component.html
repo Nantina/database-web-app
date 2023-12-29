@@ -1,0 +1,21 @@
+<div *ngIf="isVisible" class="insert-dialog">
+    <form [formGroup]="insertForm">
+      <label for="witness_id">Witness ID:</label>
+      <input type="text" id="witness_id" formControlName="witness_id" />
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" />
+      
+      <label for="birth_date">Birth Date:</label>
+      <input type="text" id="birth_date" formControlName="birth_date" />
+      
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" formControlName="gender" />
+      
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" formControlName="phone" />
+      
+      <button type="button" (click)="onSave()">Save</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,20 @@
+<div *ngIf="isVisible" class="insert-dialog">
+    <form [formGroup]="insertForm">
+      <label for="clue_id">Clue ID:</label>
+      <input type="text" id="clue_id" formControlName="clue_id" />
+      <label for="is_murder_weapon">Murder Weapon:</label>
+      <input type="text" id="is_murder_weapon" formControlName="is_murder_weapon" />
+      <label for="date">Date:</label>
+      <input type="text" id="date" formControlName="date" />
+      <label for="place">Place:</label>
+      <input type="text" id="place" formControlName="place" />
+      <label for="description">Description:</label>
+      <input type="text" id="description" formControlName="description" />
+      <label for="Case_case_id">Case ID:</label>
+      <input type="text" id="Case_case_id" formControlName="Case_case_id" />
+      <label for="type">Type:</label>
+      <input type="text" id="type" formControlName="type" />
+      <button type="button" (click)="onSave()">Save</button>
+    </form>
+  </div>
+  

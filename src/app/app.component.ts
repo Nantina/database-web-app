@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-
+import { LineService } from 'src/services/line.service';
+import { Subscription } from 'rxjs';
 declare var LeaderLine: any;
 
 @Component({
@@ -8,8 +9,9 @@ declare var LeaderLine: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements  OnDestroy {
+export class AppComponent implements  OnDestroy, AfterViewInit {
   private leaderLines: any[] = [];
+  private subscription: Subscription;
 
   @ViewChild('startingElement', { read: ElementRef })
   startingElement!: ElementRef;
@@ -30,12 +32,11 @@ export class AppComponent implements  OnDestroy {
   endingWitness!: ElementRef;
 
   isSubPage: boolean = false;
+  linesCreated: boolean = false;
 
-  constructor(private router: Router) {
-    console.log('AppComponent constructor');
+  constructor(private router: Router, private lineService: LineService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Check if the current route is a subpage
         this.isSubPage = event.url !== '/';
         if (this.isSubPage) {
           this.destroyLeaderLines();
@@ -44,18 +45,22 @@ export class AppComponent implements  OnDestroy {
         }
       }
     });
+    this.subscription = this.lineService.createLines$.subscribe(() => {
+      setTimeout(() => {
+        this.createLines();
+      }, 0);
+    });
   }
 
-  // ngAfterViewInit() {
-  //   // Ensure that ViewChild elements are available
-  //   if (this.startingElement && !this.isSubPage) {
-  //     this.createLines();
-  //   }
-  // }
+
+  ngAfterViewInit() {
+    this.createLines();
+  }
 
   ngOnDestroy() {
     // Destroy LeaderLines when the component is destroyed
     this.destroyLeaderLines();
+    this.subscription.unsubscribe();
   }
 
   navigateToCases() {
@@ -66,16 +71,20 @@ export class AppComponent implements  OnDestroy {
     this.router.navigate(['/victims']);
   }
 
-  navigateToComponent1() {
-    this.router.navigate(['/component1']);
+  navigateToWitnesses() {
+    this.router.navigate(['/witnesses']);
   }
 
-  navigateToComponent2() {
-    this.router.navigate(['/component2']);
+  navigateToPolicemen() {
+    this.router.navigate(['/policemen']);
   }
 
-  navigateToComponent3() {
-    this.router.navigate(['/component3']);
+  navigateToSuspects() {
+    this.router.navigate(['/suspects']);
+  }
+
+  navigateToClues(){
+    this.router.navigate(['/clues']);
   }
 
   private createLines() {
@@ -95,10 +104,7 @@ export class AppComponent implements  OnDestroy {
           line.path = 'straight';
           line.setOptions({ startSocket: 'top', endSocket: 'top' });
 
-          // Store the created line in the array
           this.leaderLines.push(line);
-
-          console.log(`Line ${index + 1} created successfully.`);
         }
       } catch (error) {
         console.error(`Error creating line ${index + 1}:`, error);
@@ -108,10 +114,11 @@ export class AppComponent implements  OnDestroy {
 
   private destroyLeaderLines() {
     this.leaderLines.forEach((line) => {
-      // Explicitly remove the line
       line.remove();
     });
 
     this.leaderLines = [];
+
+    this.linesCreated = false;
   }
 }

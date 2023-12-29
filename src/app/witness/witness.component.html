@@ -1,1 +1,44 @@
-<p>witness works!</p>
+
+<body>
+
+    <div class="search-container">
+        <div class="search-form">
+          <input class="search-input" type="text" placeholder="Search cases..." [(ngModel)]="searchText" />
+          <button class="search-button" (click)="search()">Search</button>
+        </div>
+      </div>
+
+    <div class="notebook-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Witness ID</th>
+                    <th>Name</th>
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let witness of filteredWitnesses; let i = index">
+                    <td>{{ witness[0] }}</td>
+                    <td>{{ witness[1] }}</td>
+                    <td>{{ witness[2] }}</td>
+                    <td>{{ witness[3] ? 'Male' : 'Female'}}</td>
+                    <td>{{ witness[4] }}</td>            
+                  <td>
+                    <button (click)="deleteWitness(witness[0])" class="delete-button"><mat-icon>delete</mat-icon></button>
+                  </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <div class="search-container">      
+        <button class="insert-button" (click)="openInsertDialog()">Insert Victim</button>
+      </div>
+
+      <app-insert-witness [isVisible]="isInsertDialogVisible" (saveWitness)="onWitnessSaved($event)"></app-insert-witness>
+</body>
+
+<router-outlet></router-outlet>

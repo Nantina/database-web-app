@@ -1,1 +1,51 @@
-<p>clue works!</p>
+
+<body>
+
+    <div class="search-container">
+        <div class="search-form">
+          <input class="search-input" type="text" placeholder="Search Clues..." [(ngModel)]="searchText" />
+          <button class="search-button" (click)="search()">Search</button>
+        </div>
+      </div>
+
+    <div class="notebook-table">
+        <table>
+            <thead>
+                <tr>
+                  <th>Clue ID</th>
+                  <th>Murder Weapon</th>
+                  <th>Date</th>
+                  <th>Place</th>
+                  <th>Description</th>
+                  <th>Case Id</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let clue of filteredClues; let i = index">
+                  <td>{{ clue[0] }}</td>
+                  <td>{{ clue[1] ? 'Yes' : 'No' }}</td>
+                  <td>{{ clue[2] }}</td>
+                  <td>{{ clue[3] }}</td>
+                  <td>{{ clue[4] }}</td>
+                  <td>{{ clue[5] }}</td>
+                  <td>{{ clue[6] }}</td>
+                  <div *ngIf="selectedRow === i && isPopupVisible">
+                    <app-case-details [selectedCase] = clue (closePopupEvent)="closePopup()"></app-case-details>
+                  </div>
+                  <td>
+                    <button (click)="deleteClue(clue[0])" class="delete-button"><mat-icon>delete</mat-icon></button>
+                  </td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+
+    <div class="search-container">      
+        <button class="insert-button" (click)="openInsertDialog()">Insert Clue</button>
+      </div>
+
+      <app-insert-clue [isVisible]="isInsertDialogVisible" (saveClue)="onClueSaved($event)"></app-insert-clue>
+</body>
+
+<router-outlet></router-outlet>

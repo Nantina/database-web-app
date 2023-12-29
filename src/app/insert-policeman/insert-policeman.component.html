@@ -1,0 +1,18 @@
+<div *ngIf="isVisible" class="insert-dialog">
+    <form [formGroup]="insertForm">
+        <label for="policeman_id">Policeman ID:</label>
+        <input type="text" id="policeman_id" formControlName="policeman_id" />
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" />
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" formControlName="gender" />
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" formControlName="phone" />
+        <label for="police_station_id">Police Station ID:</label>
+        <input type="text" id="police_station_id" formControlName="police_station_id" />
+        <label for="specialty">Specialty:</label>
+        <input type="text" id="specialty" formControlName="specialty" />
+      <button type="button" (click)="onSave()">Save</button>
+    </form>
+  </div>
+  
