@@ -1,5 +1,3 @@
-// case-details.component.ts
-
 import { Component, Input, OnInit, EventEmitter, Output  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
