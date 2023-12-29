@@ -33,7 +33,7 @@
     padding: 50px 60px;
     border: none;
     position: absolute;
-    top: 780px;
+    top: 760px;
     left:300px;
 }
 .map_paper-image{
@@ -65,7 +65,7 @@
     padding: 50px 60px;
     border: none;
     position: absolute;
-    top: 900px;
+    top: 800px;
     right:650px;
 }
 .police_line-image{
@@ -99,8 +99,8 @@
     padding: 50px 60px;
     border: none;
     position: absolute;
-    top:700px;
-    right:100px;
+    top:670px;
+    right:80px;
 }
 
 .button-clue {
