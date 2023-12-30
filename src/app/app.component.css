@@ -1,16 +1,25 @@
+.button-case-container {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .button-case {
     margin: 10px;
     padding: 50px 60px;
     font-size: 25px;
     background-color: #BDE3FF;
-    border: none;
-    position: absolute;
-    top: 250px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border:none;
     cursor: pointer;
-    font-family: slab-serif;
-  }
+    font-family: 'slab-serif';
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.button-case:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
+}
 
 .button-clue {
     margin: 10px;
@@ -23,7 +32,14 @@
     right: 400px;
     cursor: pointer;
     font-family: slab-serif;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
+
+  .button-clue:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
 
 .button-policeman {
     margin: 10px;
@@ -32,11 +48,17 @@
     background-color: #E4CCFF;
     border: none;
     position: absolute;
-    top: 700px;
+    top: 670px;
     left: 400px;
     cursor: pointer;
     transform: rotate(-15deg);
-    font-family: slab-serif;
+    font-family: 'slab-serif';
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.button-policeman:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -52,6 +74,11 @@
     cursor: pointer;
     transform: rotate(-15deg);
     font-family: slab-serif;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.button-victim:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-witness {
@@ -66,6 +93,11 @@
     cursor: pointer;
     transform: rotate(20deg);
     font-family: slab-serif;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.button-witness:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-suspect {
@@ -79,4 +111,9 @@
     right: 800px;
     cursor: pointer;
     font-family: slab-serif;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.button-suspect:hover {
+    transform: rotate(-12deg) scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
 }
