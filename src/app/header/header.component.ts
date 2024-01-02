@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class HeaderComponent {
-  message: string = 'Data for Murders';
+  message: string = 'Data for Murders Website';
 }
