@@ -35,3 +35,34 @@ Before you begin, ensure you have the following prerequisites installed:
    ```
 
    This will build the app and start a development server. You can access the web app by navigating to http://localhost:4200/ in your web browser.
+
+
+## Description 
+
+### Main Page 
+
+In the main page of the Website there are 6 buttons for the 6 main entities of the Data for Murders Database (Case, Suspect, Witness, Clue, Policeman and Victim). When each of the buttons gets clicked it navigates the user to a page displaying information regarding the respective entity. 
+
+![Alt text](image.png)
+
+### Entities Pages 
+
+In the entities pages the user can see all the information (columns) for the existing elements of the entities (through a GET request).  
+
+Also, the user can delete an existing element by cicking the delete button at the right side of each element (through a DELETE request).
+
+Furthermore, the user can search for a specific element by typing the some characters of the id of the element.
+
+Finally, the user can add an extra element by clicking the `Insert` button at the bottom of the page and filling the respective fields (through POST request).
+
+![Alt text](image-1.png)
+
+
+There is also a `Back to Home` button at the bottom left of the page that navigates to the main page. 
+
+
+### Case Page
+
+Specifically in the `/cases` page the user can also see the related information for a specific case regarding the people involved and the clues by clicking the `More Details` button at the right side of each case (through GET request).
+
+![Alt text](image-2.png)
