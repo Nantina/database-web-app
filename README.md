@@ -14,6 +14,8 @@ Before you begin, ensure you have the following prerequisites installed:
 - [Python](https://www.python.org/): Required for the backend server (`database-angular.py`).
 - [Flask](https://flask.palletsprojects.com/): The backend is built using Flask, a Python web framework. Install Flask by running `pip install Flask`.
 
+Also, the dump SQL file of the Database (`project`) should be existent in the PC where the app is running (the file is included in this repository `dbdump_team_33.sql`)
+
 
 ## Running the Web App
 
